@@ -77,25 +77,25 @@ const ImageItem = ({
 
   const onScrollEndDrag = useCallback(
     ({ nativeEvent }: NativeSyntheticEvent<NativeScrollEvent>) => {
-      const velocityY = nativeEvent?.velocity?.y ?? 0;
-      const scaled = nativeEvent?.zoomScale > 1;
-      console.log("scaled : ", scaled);
-      console.log("velocityY : ", velocityY);
-      console.log(
-        "Math.abs(velocityY) > SWIPE_CLOSE_VELOCITY : ",
-        Math.abs(velocityY) > SWIPE_CLOSE_VELOCITY,
-        SWIPE_CLOSE_VELOCITY
-      );
-      onZoom(scaled);
-      setScaled(scaled);
+      // const velocityY = nativeEvent?.velocity?.y ?? 0;
+      // const scaled = nativeEvent?.zoomScale > 1;
+      // console.log("scaled : ", scaled);
+      // console.log("velocityY : ", velocityY);
+      // console.log(
+      //   "Math.abs(velocityY) > SWIPE_CLOSE_VELOCITY : ",
+      //   Math.abs(velocityY) > SWIPE_CLOSE_VELOCITY,
+      //   SWIPE_CLOSE_VELOCITY
+      // );
+      // onZoom(scaled);
+      // setScaled(scaled);
 
-      if (
-        !scaled &&
-        swipeToCloseEnabled &&
-        Math.abs(velocityY) > SWIPE_CLOSE_VELOCITY
-      ) {
-        onRequestClose();
-      }
+      // if (
+      //   !scaled &&
+      //   swipeToCloseEnabled &&
+      //   Math.abs(velocityY) > SWIPE_CLOSE_VELOCITY
+      // ) {
+      onRequestClose();
+      // }
     },
     [scaled]
   );

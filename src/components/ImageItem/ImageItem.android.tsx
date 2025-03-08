@@ -96,16 +96,16 @@ const ImageItem = ({
   const onScrollEndDrag = ({
     nativeEvent,
   }: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const velocityY = nativeEvent?.velocity?.y ?? 0;
-    const offsetY = nativeEvent?.contentOffset?.y ?? 0;
+    // const velocityY = nativeEvent?.velocity?.y ?? 0;
+    // const offsetY = nativeEvent?.contentOffset?.y ?? 0;
 
-    if (
-      (Math.abs(velocityY) > SWIPE_CLOSE_VELOCITY &&
-        offsetY > SWIPE_CLOSE_OFFSET) ||
-      offsetY > SCREEN_HEIGHT / 2
-    ) {
-      onRequestClose();
-    }
+    // if (
+    //   (Math.abs(velocityY) > SWIPE_CLOSE_VELOCITY &&
+    //     offsetY > SWIPE_CLOSE_OFFSET) ||
+    //   offsetY > SCREEN_HEIGHT / 2
+    // ) {
+    onRequestClose();
+    // }
   };
 
   const onScroll = ({
