@@ -26,7 +26,7 @@ import { ImageSource } from "../../@types";
 import { ImageLoading } from "./ImageLoading";
 
 const SWIPE_CLOSE_OFFSET = 75;
-const SWIPE_CLOSE_VELOCITY = 1.75;
+const SWIPE_CLOSE_VELOCITY = 1;
 const SCREEN = Dimensions.get("window");
 const SCREEN_WIDTH = SCREEN.width;
 const SCREEN_HEIGHT = SCREEN.height;
@@ -96,16 +96,14 @@ const ImageItem = ({
   const onScrollEndDrag = ({
     nativeEvent,
   }: NativeSyntheticEvent<NativeScrollEvent>) => {
-    var _a, _b, _c, _d, _e, _f;
-    const velocityY = (_c = (_b = (_a = nativeEvent) === null || _a === void 0 ? void 0 : _a.velocity) === null || _b === void 0 ? void 0 : _b.y, (_c !== null && _c !== void 0 ? _c : 0));
-    const offsetY = (_f = (_e = (_d = nativeEvent) === null || _d === void 0 ? void 0 : _d.contentOffset) === null || _e === void 0 ? void 0 : _e.y, (_f !== null && _f !== void 0 ? _f : 0));
-    
-    if ((Math.abs(velocityY) > SWIPE_CLOSE_VELOCITY &&
-      offsetY > SWIPE_CLOSE_OFFSET) ||
-      offsetY > SCREEN_HEIGHT / 2) {
-      onRequestClose();
-    }
-    if(_b?.y>1){
+    const velocityY = nativeEvent?.velocity?.y ?? 0;
+    const offsetY = nativeEvent?.contentOffset?.y ?? 0;
+
+    if (
+      (Math.abs(velocityY) > SWIPE_CLOSE_VELOCITY &&
+        offsetY > SWIPE_CLOSE_OFFSET) ||
+      offsetY > SCREEN_HEIGHT / 2
+    ) {
       onRequestClose();
     }
   };
