@@ -37,6 +37,9 @@ const ImageItem = ({ imageSrc, onZoom, onRequestClose, onLongPress, delayLongPre
         var _a, _b, _c, _d;
         const velocityY = (_c = (_b = (_a = nativeEvent) === null || _a === void 0 ? void 0 : _a.velocity) === null || _b === void 0 ? void 0 : _b.y, (_c !== null && _c !== void 0 ? _c : 0));
         const scaled = ((_d = nativeEvent) === null || _d === void 0 ? void 0 : _d.zoomScale) > 1;
+        console.log("scaled : ", scaled);
+        console.log("velocityY : ", velocityY);
+        console.log("Math.abs(velocityY) > SWIPE_CLOSE_VELOCITY : ", Math.abs(velocityY) > SWIPE_CLOSE_VELOCITY, SWIPE_CLOSE_VELOCITY);
         onZoom(scaled);
         setScaled(scaled);
         if (!scaled &&
